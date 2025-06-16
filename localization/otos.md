@@ -64,7 +64,6 @@ Since OTOS has only one linear scalar, you can run **either Forward or Lateral L
 
 4. Add the linear scalar value in `LConstants` in the static block:
     - On a new line, add (or modify if using the quickstart) `OTOSConstants.linearScalar = [LINEARSCALAR]`, where [LINEARSCALAR] is the outputted value.
-    - By replacing  in 
 5. (Optional): Run multiple tests and average the scalars for better accuracy.
 
 
@@ -78,8 +77,8 @@ Since OTOS has only one linear scalar, you can run **either Forward or Lateral L
 3. After the rotation:
     - **First number**: The distance the robot estimates it as rotated.
     - **Second number**: The **angular scalar** you need to input.
-4. Replace the angular scalar value in `OTOSLocalizer.java` (line **78**) with the new scalar:
-    - Ensure you **replace** the value, not add to or multiply the existing one.
+4. Add the angular scalar value in `LConstants` in the static block:
+    - On a new line, add (or modify if using the quickstart) `OTOSConstants.angularScalar = [ANGULARSCALAR]`, where [ANGULARSCALAR] is the outputted value.
 5. (Optional): Run multiple tests to average the scalars for improved accuracy.
 
 
