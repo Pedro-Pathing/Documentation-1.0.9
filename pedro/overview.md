@@ -19,12 +19,12 @@ This documentation covers a variety of critical topics regarding Pedro Pathing, 
 - **[PIDF Tuning:](./pidf/intro.md)** Comprehensive strategies for perfecting the reactive follower system.
 - **[Code Examples:](./examples/auto.md)** Practical examples for both autonomous and teleop modes.
 - **[Autonomous Breakdown:](./examples/buildauto.md)** A detailed breakdown on the example autonomous that uses Pedro Pathing.
-- **[Common Issues:](./commonissues/pathovershoot.md)** Solutions to common problems encountered while using Pedro Pathing.
+- **[Common Issues:](../commonissues/pathovershoot.md)** Solutions to common problems encountered while using Pedro Pathing.
 
 However, this documentation also contains other, more general useful topics such as:
-- **[ADB Setup:](./general/adb.md)** A tutorial on how to set up ADB for wireless pushing.
-- **[PID Tutorial:](./general/pid.md)** A tutorial on how to tune PID loops for your robot.
-- **[XML Configuration Tutorial:](./general/xml.md)** A tutorial on how to configure your robot using XML.
+- **[ADB Setup:](../general/adb.md)** A tutorial on how to set up ADB for wireless pushing.
+- **[PID Tutorial:](../general/pid.md)** A tutorial on how to tune PID loops for your robot.
+- **[XML Configuration Tutorial:](../general/xml.md)** A tutorial on how to configure your robot using XML.
 
 The sidebar provides quick access to each section, ensuring easy navigation through the documentation.
 
