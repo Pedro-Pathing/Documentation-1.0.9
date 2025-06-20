@@ -13,25 +13,25 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /overview
+      link: /pedro/overview
     - theme: alt
       text: Localization
-      link: /localization/pick
+      link: /pedro/localization/pick
     - theme: alt
       text: Automatic Tuners
-      link: /automatic/prerequisites
+      link: /pedro/automatic/prerequisites
     - theme: alt
       text: PIDF Tuners
-      link: /pidf/intro
+      link: /pedro/pidf/intro
     - theme: alt
       text: Examples
-      link: /examples/buildauto
+      link: /pedro/examples/buildauto
     - theme: alt
       text: Common Issues
-      link: /commonissues/pathovershoot
+      link: /pedro/commonissues/pathovershoot
     - theme: alt
       text: Miscellaneous
-      link: /misc/localchanges
+      link: /pedro/misc/localchanges
     - theme: alt
       text: General FTC
       link: /general/adb
