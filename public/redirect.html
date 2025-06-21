@@ -21,7 +21,7 @@
         var target = getQueryVariable("target");
         var selectedUrl = "";
         switch(target.toLowerCase()) {
-            case "": selectedUrl = "/";break;
+            case "": window.location.replace("/");break;
             case "threewheel": selectedUrl="/localization/threeWheel";break;
             case "threewheelimu": selectedUrl="/localization/threeWheelImu";break;
             case "twowheel": selectedUrl="/localization/twoWheel";break;
