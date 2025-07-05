@@ -2,70 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <script>
-        function getQueryVariable(variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split('=');
-                if (decodeURIComponent(pair[0]) === variable) {
-                    return decodeURIComponent(pair[1]);
-                }
-            }
-            console.log('Query variable %s not found', variable);
-            return "";
+
+    <style>
+        body {
+            background-color: #111111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, sans-serif;
+            text-align: center;
+            height: 100dvh;
+            margin: 0;
         }
 
-        var target = getQueryVariable("target");
-        var selectedUrl = "";
-        switch(target.toLowerCase()) {
-            case "": window.location.replace("/");break;
-            case "threewheel": selectedUrl="/localization/threeWheel";break;
-            case "threewheelimu": selectedUrl="/localization/threeWheelImu";break;
-            case "twowheel": selectedUrl="/localization/twoWheel";break;
-            case "driveencoder": selectedUrl="/localization/driveEncoder";break;
-            case "otos": selectedUrl="/localization/otos";break;
-            case "pinpoint": selectedUrl="/localization/pinpoint";break;
-            case "setup": selectedUrl="/localization/setup";break;
-            case "pick": selectedUrl="/localization/pick";break;
-            case "constants": selectedUrl="/misc/constants";break;
-            case "localchanges": selectedUrl="/misc/localchanges";break;
-            case "adb": selectedUrl="/general/adb";break;
-            case "xml": selectedUrl="/general/xml";break;
-            case "auto": selectedUrl="/examples/auto";break;
-            case "buildauto": selectedUrl="/examples/buildauto";break;
-            case "teleop": selectedUrl="/examples/teleop";break;
-            case "pathtopathchain": selectedUrl="/commonissues/pathtopathchain";break;
-            case "pathovershoot": selectedUrl="/commonissues/pathovershoot";break;
-            case "forwardvelocity": selectedUrl="/automatic/forwardvelocity";break;
-            case "strafevelocity": selectedUrl="/automatic/strafevelocity";break;
-            case "forwardzeropower": selectedUrl="/automatic/forwardzeroPower";break;
-            case "lateralzeropower": selectedUrl="/automatic/lateralzeroPower";break;
-            case "automaticprequisites": selectedUrl="/automatic/prerequisites";break;
-            case "pidfintro": selectedUrl="/pidf/intro";break;
-            case "translational": selectedUrl="/pidf/translational";break;
-            case "heading": selectedUrl="/pidf/heading";break;
-            case "drive": selectedUrl="/pidf/drive";break;
-            case "centripetal": selectedUrl="/pidf/centripetal";break;
-            case "test": selectedUrl="/pidf/test";break;
-            case "overview": selectedUrl="/overview";break;
-            case "migrating": selectedUrl="/migrating";break;
-            case "prerequisites": selectedUrl="/prerequisites";break;
-            case "callbacks": selectedUrl="/misc/callbacks";break;
-            case "shortcuts": selectedUrl="/misc/shortcuts";break;
-            case "pinpointnan": selectedUrl="/general/pinpointNAN";break;
+        h1 {
+            color: deepskyblue;
+            font-size: 4rem;
+            margin: 0.5rem;
         }
-        window.location.replace("/pedro"+selectedUrl);
-    </script>
+
+        h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        a {
+            color: deepskyblue;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1 id="usejs">This page uses JavaScript to redirect. Please enable JavaScript and reload.</h1>
+
+<h1>Redirecting...</h1>
+<h2 id="subheading">
+    <noscript>This page uses JavaScript to redirect. Please enable JavaScript for this site and reload.</noscript>
+</h2>
+
 <script>
-    document.getElementById("usejs").innerText = "Redirecting...";
+  const subheading = document.getElementById('subheading')
+
+  const searchParams = new URLSearchParams(window.location.search)
+  const target = searchParams.get('target')?.toLowerCase()
+
+  fetch('/redirects.json').then(res => res.json()).then(redirects => {
+    const redirect = redirects[target]
+    if (redirect) {
+      subheading.innerHTML = `Redirecting. If you are not redirected automatically, <a href="${redirect}">click here</a>.`
+      location.replace(redirect)
+    } else {
+      subheading.innerHTML = 'Redirect not found. <a href="/">Click here</a> to return to the home page.'
+    }
+  }).catch(() => {
+    subheading.innerHTML = 'Redirect failed. Please try again later. <a href="/">Click here</a> to return to the home page.'
+  })
 </script>
+
 </body>
 </html>
-
-<!-- modified from rowan/nextftc with permission -->
