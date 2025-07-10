@@ -1,14 +1,15 @@
 # Converting a Path into a PathChain ##
 ## Overview ##
-In Pedro Pathing, a PathChain allows multiple paths to be chained together, allowing for multiple movements to happen in a sequence. PathChain are able to have "holdEnd," which allows them to hold their end position, until the follower follows another path. This allows for the robot to continually correct while, for example, running an action sequence to score your preload. This guide walks you through converting individual paths into a PathChain while incorporating interpolation methods and timeout constraints.
+In Pedro Pathing, a PathChain allows multiple Paths to be chained together, allowing for multiple movements to happen in a sequence. PathChains have enhanced customizability, being able to run using custom zpam, callbacks, and end constraints. This guide walks you through converting individual Paths into a PathChain while incorporating interpolation methods and timeout constraints.
 
 
 
 ## What You Need to Know
 - Path: Represents a single movement, which can be a curve (BezierCurve) or a straight line (BezierLine).
-- PathChain: Contains Path(s) within it.
-- Interpolations: Define how the robot adjusts heading (rotation) throughout a path.
-- Timeout Constraints: Limit the time the robot spends attempting to complete a path.
+- PathChain: Contains Path(s) within it, as well as custom configurations and callbacks.
+- Interpolations: Define how the robot adjusts heading (rotation) throughout a Path.
+- Timeout Constraints: Limit the time the robot spends attempting to complete a 
+Path.
 
 
 
@@ -40,7 +41,7 @@ Path straightPath = new Path(
 straightPath.setConstantHeadingInterpolation(goalPose.getHeading());
 ```
 ### Step 2: Building a PathChain
-To combine paths into a PathChain, use the pathBuilder method from the Follower class. Instead of creating the paths separately, you now create them within the pathChain. Here's an example:
+To combine paths into a PathChain, use the PathBuilder method from the Follower class. Instead of creating the paths separately, you now create them within the pathChain. Here's an example:
 ```java
 PathChain pathChain = follower.pathBuilder()
     .addPath(new BezierLine(new Point(startPose), new Point(midPose))) // First path
@@ -51,16 +52,12 @@ PathChain pathChain = follower.pathBuilder()
     .build();
 ```
 
-### Step 3: Running a Path
-To run a path, you use the follower to follow the path. For example:
+### Step 3: Running a Path or PathChain
+To run a path, you use the follower to follow the Path(Chain). For example:
 ```java
 follower.followPath(straightPath);
 ```
 
-### Step 4: Running a PathChain
-To run a PathChain, you use the follower to follow the PathChain. You also have the option to holdEnd, which allows for the robot to correct at the endPoint while it awaits another path or instruction from the follower. For example:
-```java
-follower.followPath(pathChain, /* holdEnd */ true);
-```
+This works regardless of whether ``straightPath`` is a Path or a PathChain.
 
 
