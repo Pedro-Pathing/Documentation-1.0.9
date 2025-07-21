@@ -18,7 +18,6 @@ This page compares Pedro Pathing and Road Runner to help users decide which is t
 - Does not have a built-in action system outside of path callbacks
 
 ## Road Runner (1.0)
-Pros:
 
 ### Key Advantages:
 - Time consistent, slows down robot to achieve predictability
