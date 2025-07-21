@@ -20,16 +20,16 @@ This page compares Pedro Pathing and Road Runner to help users decide which is t
 ## Road Runner (1.0)
 Pros:
 
-IMPORTANT:
+### Key Advantages:
 - Time consistent, slows down robot to achieve predictability
 - Extensively tested, has a large user-base
 
-Other Considerations:
+### Other Considerations:
 - Built in custom logs
 - AdvantageScope support
 - Tuning is mostly automated
 
-Cons:
+### Cons:
 - Robot is modeled to drive at about 80% power meaning 20% slower
 - Does not support other command bases
 - Finetuning points typically takes longer
