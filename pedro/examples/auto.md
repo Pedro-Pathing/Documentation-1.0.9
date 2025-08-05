@@ -5,7 +5,7 @@ It serves as a **template** for an Into the Deep Bucket Side autonomous, and it 
 It can be viewed [here](https://github.com/Pedro-Pathing/Quickstart/blob/master/TeamCode/src/main/java/pedroPathing/examples/ExampleBucketAuto.java) on Github
 
 ```java
-package pedroPathing.examples;
+package org.firstinspires.ftc.teamcode.pedroPathing.examples;
 
 import com.pedropathing.follower.Follower;
 import com.pedropathing.localization.Pose;
@@ -19,8 +19,8 @@ import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import  com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import pedroPathing.constants.FConstants;
-import pedroPathing.constants.LConstants;
+import org.firstinspires.ftc.teamcode.pedroPathing.constants.FConstants;
+import org.firstinspires.ftc.teamcode.pedroPathing.constants.LConstants;
 
 /**
  * This is an example auto that showcases movement and control of two servos autonomously.
